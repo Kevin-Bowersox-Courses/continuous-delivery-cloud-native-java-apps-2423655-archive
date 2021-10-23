@@ -6,6 +6,7 @@ target/
 
 ### Eclipse ###
 .metadata
+.sonarlint
 .apt_generated
 .classpath
 .factorypath
