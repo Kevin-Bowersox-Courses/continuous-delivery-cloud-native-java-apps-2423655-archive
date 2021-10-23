@@ -10,7 +10,7 @@ for dir in */; do
     git -C $dir add .
     git -C $dir commit -m "Initial Setup"
 
-    cd $dir && gh repo create $3/${dir%?} && cd ..
+    cd $dir && gh repo create $3/${dir%?} --confirm --private && cd ..
 
     git -C $dir push -u origin main
     echo "$dir"
