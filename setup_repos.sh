@@ -1,3 +1,5 @@
+find . -type f -exec sed -i 's/{githubOrganizationName}/'$3'/g' {} +
+
 for dir in */; do
 
     git config --global user.email "$1"
@@ -14,4 +16,3 @@ for dir in */; do
     echo "$dir"
 done
 
-find . -type f -exec sed -i 's/{githubOrganizationName}/'$3'/g' {} +
