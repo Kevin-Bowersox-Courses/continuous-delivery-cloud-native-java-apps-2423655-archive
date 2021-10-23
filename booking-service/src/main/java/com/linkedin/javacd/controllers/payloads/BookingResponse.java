@@ -14,10 +14,10 @@ public class BookingResponse {
 	
 	private Long bookingId;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy", timezone="UTC")
 	private Instant startDate;
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy", timezone="UTC")
 	private Instant endDate;
 	
 	private  JsonNode room;
