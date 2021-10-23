@@ -34,7 +34,7 @@ public class BasicRoomService implements RoomService {
 			.collect(Collectors.joining(","));
 		
 
-		ArrayNode results = webClient.get()
+		return webClient.get()
 				.uri(uriBuilder -> uriBuilder
 						.path(this.roomServicePath)
 						.queryParam("ids", "{ids}")
@@ -43,8 +43,6 @@ public class BasicRoomService implements RoomService {
 				.retrieve()
 				.bodyToMono(ArrayNode.class)
 				.block();
-
-		return results;
 	}
 	
 }
