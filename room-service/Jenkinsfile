@@ -1,0 +1,35 @@
+pipeline {
+    
+    agent any
+    
+    environment {
+        
+        CONTAINER_REGISTRY = "ghcr.io/landon-hotel-kevin/"
+        ARTIFACT_ID = readMavenPom().getArtifactId()
+        JAR_NAME = "${ARTIFACT_ID}-${BUILD_NUMBER}"
+        IMAGE_NAME = "${ARTIFACT_ID}:${BUILD_NUMBER}"
+
+    }
+    
+	stages {
+	    
+	    stage("Build Application"){
+	        
+	        sh "echo Performing Maven build: ${ARTIFACT_ID}"
+	        
+	    }
+	    
+	    stage("Build Container Image"){
+	        
+	        sh "echo Building container image: ${IMAGE_NAME}"
+	        
+	    }
+
+	    stage("Publish Container Image"){
+	        
+	        sh "echo Publishing container image to: ${CONTAINER_REGISTRY}"
+	        
+	    }
+
+	}      
+}
