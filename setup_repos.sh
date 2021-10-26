@@ -1,4 +1,4 @@
-find . -type f -exec sed -i 's/{githubOrganizationName}/'$3'/g' {} +
+find . -type f -name "*.yaml" -exec sed -i 's/{githubOrganizationName}/'$3'/g' {} +
 
 for dir in */; do
 
@@ -13,6 +13,6 @@ for dir in */; do
     cd $dir && gh repo create $3/${dir%?} --confirm --private && cd ..
 
     git -C $dir push -u origin main
-    echo "$dir"
+    
 done
 
