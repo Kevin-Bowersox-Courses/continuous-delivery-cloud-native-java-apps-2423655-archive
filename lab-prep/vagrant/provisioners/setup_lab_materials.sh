@@ -1,5 +1,5 @@
 #Build the Eclipse Workspace
-mkdir -p /home/vagrant/Desktop/eclipse
+mkdir -p /home/vagrant/Desktop
 
 #Downlaod the Course Materials
 ssh-keyscan github.com >> /home/vagrant/.ssh/known_hosts
@@ -13,9 +13,9 @@ sudo apt -y install gh
 sudo curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
 sudo install -o vagrant -g root -m 0755 kustomize /usr/local/bin/kustomize
 
-wget https://mirror.umd.edu/eclipse/technology/epp/downloads/release/2021-09/R/eclipse-jee-2021-09-R-linux-gtk-x86_64.tar.gz -P /home/vagrant/Desktop/eclipse
-tar -xf /home/vagrant/Desktop/eclipse/eclipse-jee-2021-09-R-linux-gtk-x86_64.tar.gz -C /home/vagrant/Desktop/eclipse
-rm /home/vagrant/Desktop/eclipse/eclipse-jee-2021-09-R-linux-gtk-x86_64.tar.gz
+wget https://mirror.umd.edu/eclipse/technology/epp/downloads/release/2020-06/R/eclipse-jee-2020-06-R-linux-gtk-x86_64.tar.gz -P /home/vagrant/Desktop/eclipse
+tar -xf /home/vagrant/Desktop/eclipse/eclipse-jee-2020-06-R-linux-gtk-x86_64.tar.gz -C /home/vagrant/Desktop/eclipse
+rm /home/vagrant/Desktop/eclipse/eclipse-jee-2020-06-R-linux-gtk-x86_64.tar.gz
 
 sudo apt install tree
 
