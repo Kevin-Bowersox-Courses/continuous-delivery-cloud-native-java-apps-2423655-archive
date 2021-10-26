@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: booking-service
-        image: ghcr.io/javacd-workspace/booking-service:3
+        image: ghcr.io/{githubOrganizationName}/booking-service:1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
