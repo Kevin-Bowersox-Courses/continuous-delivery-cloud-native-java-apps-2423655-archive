@@ -16,10 +16,11 @@
 			.then(results => {
 				
 				for(let item of results){
+					let name = item?.guest?.firstName == undefined ? '':item?.guest?.firstName + ' ' + item?.guest?.lastName; 
 					$("#records").find('tbody')
     					.append($('<tr>')
         				.append($('<td>').text(item.bookingId))
-        				.append($('<td>').text(item?.guest?.firstName + ' ' + item?.guest?.lastName))
+        				.append($('<td>').text(name))
         				.append($('<td>').text(item?.room?.name))
         				.append($('<td>').text(item.startDate))
         				.append($('<td>').text(item.endDate))

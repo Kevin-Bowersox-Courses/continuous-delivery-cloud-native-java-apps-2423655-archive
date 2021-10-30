@@ -41,35 +41,39 @@ public class BookingController {
 				.map(BookingResponse::new)
 				.collect(Collectors.toList());
 		
-		//Comment this out for delivery lesson
-		/*
-		List<Long> guestIds = currentBookings.stream()
-			.map(BookingResponse::getBooking)
-			.map(Booking::getGuestId)
-			.collect(Collectors.toList());
-		
-		List<Long> roomIds = currentBookings.stream()
-				.map(BookingResponse::getBooking)
-				.map(Booking::getRoomId)
-				.collect(Collectors.toList());
+		try {
 			
-		ArrayNode roomArray = this.roomService.list(roomIds);
-		ArrayNode guestArray = this.guestService.list(guestIds);
-		
-		for(JsonNode node : roomArray) {
-			Long id = node.get("roomId").asLong();
-			currentBookings.stream()
+			List<Long> guestIds = currentBookings.stream()
+					.map(BookingResponse::getBooking)
+					.map(Booking::getGuestId)
+					.collect(Collectors.toList());
+
+			List<Long> roomIds = currentBookings.stream()
+					.map(BookingResponse::getBooking)
+					.map(Booking::getRoomId)
+					.collect(Collectors.toList());
+
+			ArrayNode roomArray = this.roomService.list(roomIds);
+			ArrayNode guestArray = this.guestService.list(guestIds);
+
+			for(JsonNode node : roomArray) {
+				Long id = node.get("roomId").asLong();
+				currentBookings.stream()
 				.filter(bookingResponse -> bookingResponse.getBooking().getRoomId().equals(id))
 				.forEach(booking -> booking.setRoom(node));
-		}
-		
-		for(JsonNode node : guestArray) {
-			Long id = node.get("guestId").asLong();
-			currentBookings.stream()
+			}
+
+			for(JsonNode node : guestArray) {
+				Long id = node.get("guestId").asLong();
+				currentBookings.stream()
 				.filter(bookingResponse -> bookingResponse.getBooking().getGuestId().equals(id))
 				.forEach(booking -> booking.setGuest(node));
+			}
+			
+		} catch (Exception e) {
+			
 		}
-		*/
+		
 		
 		return ResponseEntity.ok(currentBookings);
 	
